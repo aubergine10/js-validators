@@ -80,6 +80,9 @@ const isRegExp = value => value && typeof value === 'object' && value.constructo
 
 const isString = value => typeof value === 'string' || value instanceof String
 
+// Based on https://github.com/jonschlinkert/is-number
+const isStringNumber = value => isString( value ) && value.trim() !== '' && Number.isFinite( +value )
+
 const isStringPrimitive = value => typeof value === 'string'
 
 const isSymbol = value => typeof value === 'symbol'
