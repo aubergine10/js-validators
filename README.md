@@ -35,7 +35,8 @@ Identical to `isConstructable( value )`, just different spelling.
 ### isClass( value )
 
 > :warning: **Use with care!**  
-> Transpiled code (eg. Babel, TypeScript, etc) will almost always convert ES6 classes in to normal functions and the resulting "classes" would elicit a `false` result from `isClass()`.
+>  
+> Transpiled code (eg. Babel, TypeScript, etc) will almost always convert ES6 classes in to normal functions and the resulting " function-based classes" would elicit a `false` result from `isClass()`.
 
 Returns `true` if `value` is an actual ES6 `class`, otherwise `false`.
 
