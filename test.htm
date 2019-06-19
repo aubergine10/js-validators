@@ -1,0 +1,74 @@
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Validator tests</title>
+
+        <style type="text/css">
+            div.failed { color: #f00 }
+            div.passed { color: #0f0 }
+        </style>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+        <script src='./validators.js' type='text/javascript'></script>
+        <script src='./test.js' type='text/javascript'></script>
+        <script type="text/javascript">
+            'use strict';
+
+            const checks = {
+                isArray: isArray,
+                isBoolean: isBoolean,
+                isBooleanPrimitive: isBooleanPrimitive,
+                isConstructable: isConstructable,
+                isClass: isClass,
+                isDate: isDate,
+                isError: isError,
+                isFunction: isFunction,
+                isGenerator: isGenerator,
+                isGeneratorish: isGeneratorish,
+                isGeneratorishThrowable: isGeneratorishThrowable,
+                isInvokable: isInvokable,
+                isIterable: isIterable,
+                isIterableExcludeString: isIterableExcludeString,
+                isNull: isNull,
+                isNumber: isNumber,
+                isNumberish: isNumberish,
+                isNumberPrimitive: isNumberPrimitive,
+                isObject: isObject,
+                isPlainObject: isPlainObject,
+                isPrimitive: isPrimitive,
+                isRegExp: isRegExp,
+                isString: isString,
+                isStringPrimitive: isStringPrimitive,
+                isSymbol: isSymbol,
+                isUndefined: isUndefined
+            }
+
+            const checksMap = new Map(Object.entries(checks))
+
+            function run( checks, tests ) {
+                let $main = $('main'),
+                    $current
+
+                for ( const [name, fn] of checks ) {
+                    $main.append( `<section><h1>${name}</h1></section>` )
+                    $current = $( 'section:last', $main )
+                    for ( const [group, subjects] of tests ) {
+                        for ( const [description, test] of subjects ) {
+                            const result = fn(test)? 'passed' : 'failed'
+                            $current.append( `<div class='${result}'>${description}</div>`)
+                        }
+                    }
+                }
+            }
+
+            $( function() {
+                run( checksMap, tests )
+            } )
+        </script>
+    </head>
+    <body>
+        <header>Needs a modern browser that supports ES6 (IE11 will not work)</header>
+        <main></main>
+    </body>
+</html>
