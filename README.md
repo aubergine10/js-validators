@@ -24,6 +24,8 @@ It will return `false` for `Boolean` _instances_ (eg. `new Boolean( true )`) and
 
 Returns `true` if `value` can be instantiated with the `new` keyword, otherwise `false`.
 
+Will return `false` for `Symbol` which, despite technically being constructable, will throw `Error: Symbol is not a constructor` if used with the `new` operator.
+
 Classes and non-arrow functions are constructible. A `Proxy` is used to test for cosntructability _without_ instantiating an instance of `value`.
 
 ### isConstructible( value )
@@ -32,11 +34,11 @@ Identical to `isConstructable( value )`, just different spelling.
 
 ### isClass( value )
 
+> :warning: Transpiled code (eg. Babel, TypeScript, etc) will almost always convert ES6 classes in to normal functions and the resulting "classes" would elicit a `false` result from `isClass()`.
+
 Returns `true` if `value` is an actual ES6 `class`, otherwise `false`.
 
 This is similar to `isConstructable`, but filters out normal functions.
-
-Remember that transpiled code (eg. Babel, TypeScript, etc) will almost always convert ES6 classes in to normal functions, so use with care!
 
 ### isDate( value )
 
