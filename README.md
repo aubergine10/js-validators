@@ -16,6 +16,10 @@ It's literally just `Array.isArray( value )`.
 
 ### isBoolean( value )
 
+Returns `true` if `value` is a boolean instance or primitive boolean value, otherwise `false`.
+
+### isBooleanPrimitive( value )
+
 Returns `true` if `value` is a _primitive_ boolean value (`true` or `false`), otherwise `false`.
 
 It's literally just `typeof value === 'boolean'`.
@@ -126,15 +130,23 @@ It's literally just `value === null`.
 
 > :warning: Has not been tested with `BigInt` numbers.
 
-Returns `true` if `value` is a _primitive and finite_ number value, otherwise `false`.
+Returns `true` if `value` is a _number instance of finite value_ or a _finite primitive number value_, otherwise `false`.
 
-It will return `false` for `Number` _instances_ (eg. `new Number( true )`) and strings.
+It will return `false` for _strings containing numbers_.
 
 ### isNumberish( value )
 
 > :warning: Has not been tested with `BigInt` numbers.
 
 Like `isNumber()` but also allows strings containing numbers.
+
+### isNumberPrimitive( value )
+
+> :warning: Has not been tested with `BigInt` numbers.
+
+Returns `true` if `value` is a _finite primitive number value_, otherwise `false`.
+
+It will return `false` for _number instances_ and _strings containing numbers_.
 
 ### isObject( value )
 
@@ -164,9 +176,13 @@ Returns `true` if `value` is a regular expression, otherwise `false`.
 
 ### isString( value )
 
-Returns `true` if `value` is a _primitive_ string value, otherwise `false`.
+Returns `true` if `value` is a _primitive string value_ or a _string instance_, otherwise `false`.
 
-It will return `false` for `String` _instances_ (eg. `new String( 'foo' )`).
+### isStringPrimitive( value )
+
+Returns `true` if `value` is a _primitive string value_, otherwise `false`.
+
+It will return `false` for _string instances_.
 
 ### isSymbol( value )
 
