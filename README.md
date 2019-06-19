@@ -162,15 +162,17 @@ By _plain object_ we mean something that is derived from an _unextended_ `Object
 
 Will return `false` for primitive values (including `null`), arrays, functions, classes, and instances of classes.
 
-### isPrimative( value )
+### isPrimitive( value )
 
 > :warning: Has not been tested with `BigInt` numbers.
 
-Returns `true` if `value` is a primitive value, otherwise `false`.
+Returns `true` if `value` is a _primitive value_, otherwise `false`.
 
-Unlike `isNumberPrimitive()`, which mandates finite values, `isPrimitive()` will return `true` for `NaN` and non-finite values as they are technically primitive numbers.
+The 7 primitive data types are: `string`, `number`, `bigint`, `boolean`, `null`, `undefined`, `symbol`.
 
-Will return `false` for primitive-like object instances (eg. `new Number(5)`).
+Unlike `isNumberPrimitive()`, which mandates finite values, `isPrimitive()` will return `true` for primitive number "values" such as `NaN` and `-Infinity`; despite not being usable numbers, they have primitive `number` data type.
+
+Will return `false` for primitive-like object instances (eg. `new Boolean(true)`).
 
 ### isRegExp( value )
 
