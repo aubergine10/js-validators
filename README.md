@@ -168,7 +168,9 @@ Will return `false` for primitive values (including `null`), arrays, functions, 
 
 Returns `true` if `value` is a primitive value, otherwise `false`.
 
-Will return `false` for object instances of primitive values (eg. `new Number(5)`).
+Unlike `isNumberPrimitive()`, which mandates finite values, `isPrimitive()` will return `true` for `NaN` and non-finite values.
+
+Will return `false` for primitive-like object instances (eg. `new Number(5)`).
 
 ### isRegExp( value )
 
