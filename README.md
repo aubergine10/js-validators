@@ -12,11 +12,13 @@ This library relies on a modern native ES6 implementation to work. It will not w
 
 Returns `true` if `value` is an array, otherwise `false`.
 
-Identical to `Array.isArray( value )`.
+It's literally just `Array.isArray( value )`.
 
 ### isBoolean( value )
 
 Returns `true` if `value` is a _primitive_ boolean value (`true` or `false`), otherwise `false`.
+
+It's literally just `typeof value === 'boolean'`.
 
 It will return `false` for `Boolean` _instances_ (eg. `new Boolean( true )`) and truthy / falsey values (eg. `null`, `0`, or `''` empty string).
 
@@ -46,6 +48,8 @@ This is similar to `isConstructable`, but filters out normal functions.
 
 Returns `true` if `value` is a `Date` instance, otherwise `false`.
 
+It's literally just `value instanceof Date`.
+
 ### isError( value )
 
 > :warning: There are errors with this validator, avoid using until further notice.
@@ -57,6 +61,8 @@ Will return `false` for errors that are primitive values (eg. `throw "foobar"`).
 ### isFunction( value )
 
 Returns `true` if `value` is some kind of function, otherwise `false`.
+
+It's literally just `typeof value === 'function'`.
 
 Valid functions are:
 
@@ -114,15 +120,19 @@ Like `isIterable()` but excludes strings.
 
 Returns `true` if `value` is defined as `null`, otherwise `false`.
 
-Fam, it's literally `value === null`.
+It's literally just `value === null`.
 
 ### isNumber( value )
+
+> :warning: Has not been tested with `BigInt` numbers.
 
 Returns `true` if `value` is a _primitive and finite_ number value, otherwise `false`.
 
 It will return `false` for `Number` _instances_ (eg. `new Number( true )`) and strings.
 
 ### isNumberish( value )
+
+> :warning: Has not been tested with `BigInt` numbers.
 
 Like `isNumber()` but also allows strings containing numbers.
 
@@ -142,6 +152,8 @@ Will return `false` for primitive values (including `null`), arrays, functions, 
 
 ### isPrimative( value )
 
+> :warning: Has not been tested with `BigInt` numbers.
+
 Returns `true` if `value` is a primitive value, otherwise `false`.
 
 Will return `false` for object instances of primitive values (eg. `new Number(5)`).
@@ -160,8 +172,10 @@ It will return `false` for `String` _instances_ (eg. `new String( 'foo' )`).
 
 Returns `true` if `value` is a symbol, otherwise `false`.
 
+It's literally just `typeof value === 'symbol'`.
+
 ### isUndefined( value )
 
 Returns `true` if `value` is defined as `undefined`, otherwise `false`.
 
-Fam, it's literally `value === undefined`.
+It's literally just `typeof value === 'undefined'`.
