@@ -34,7 +34,7 @@ Identical to `isConstructable( value )`, just different spelling.
 
 ### isClass( value )
 
-> :warning: **Use with care!**  
+> :warning: **CAUTION**  
 >  
 > Transpiled code (eg. Babel, TypeScript, etc) will almost always convert ES6 classes in to normal functions and the resulting "function-based classes" would elicit a `false` result from `isClass()`.
 
