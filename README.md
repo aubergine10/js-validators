@@ -140,6 +140,8 @@ It will return `false` for _strings containing numbers_.
 
 Like `isNumber()` but also allows strings containing numbers.
 
+See also: `isStringNumber()`
+
 ### isNumberPrimitive( value )
 
 > :warning: Has not been tested with `BigInt` numbers.
@@ -181,6 +183,12 @@ Returns `true` if `value` is a regular expression, otherwise `false`.
 ### isString( value )
 
 Returns `true` if `value` is a _primitive string value_ or a _string instance_, otherwise `false`.
+
+### isStringNumber( value )
+
+Returns `true` if `value` is a _finite number_ encapsulated in a _primitive string value_ or a _string instance_, otherwise `false`.
+
+It will return `false` for _number instances_ and _primitive number values_.
 
 ### isStringPrimitive( value )
 
